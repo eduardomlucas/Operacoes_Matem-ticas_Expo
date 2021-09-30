@@ -44,7 +44,7 @@ export default class App extends React.Component{
 //------------------------------------------VIEW----------------------------------------------------------------
   render(){
     return(
-      <View style={meuEstilo.container}>
+      <View style={MeuEstilo.container}>
 
           <TextInput style={MeuEstilo.input} underlineColorAndroid="transparent" 
           placeholder="digite o valor 1" placeholderTextColor="black"
