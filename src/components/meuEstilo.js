@@ -10,7 +10,7 @@ export default StyleSheet.create({
     },
 
     container:{
-        paddingTop:23,
+        paddingTop:100,
     },
 
     input:{
@@ -32,13 +32,5 @@ export default StyleSheet.create({
         alignItems:'center',
         textAlign:'center',
     },
-
-    switchstilo:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-    },
-
-
 });
 
