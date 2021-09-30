@@ -1,5 +1,8 @@
 import * as React from 'react';
 import {Text, TouchableOpacity, TextInput, View, Stylesheet, StatusBar} from 'react-native';
+import meuEstilo from './src/components/meuEstilo';
+
+import MeuEstilo from './src/components/meuEstilo';
 
 export default class App extends React.Component{
   state={
@@ -21,11 +24,26 @@ export default class App extends React.Component{
                           parseFloat(this.state.valor2);
     alert(this.state.resultado);
   }
+  subtrair(){
+    this.state.resultado=parseFloat(this.state.valor1)-
+                          parseFloat(this.state.valor2);
+    alert(this.state.resultado);
+  }
+  multiplicacao(){
+    this.state.resultado=parseFloat(this.state.valor1)*
+                          parseFloat(this.state.valor2);
+    alert(this.state.resultado);
+  }
+  divisao(){
+    this.state.resultado=parseFloat(this.state.valor1)/
+                          parseFloat(this.state.valor2);
+    alert(this.state.resultado);
+  }
 
   //primeiro text(gambiarra pra descer os inputs)
   render(){
     return(
-      <View>
+      <View style={meuEstilo.container}>
         
         <Text>
         {this.state.titleText}
@@ -34,20 +52,29 @@ export default class App extends React.Component{
         </Text>
 
         <StatusBar backgroundColor="black"/>
-          <TextInput underlineColorAndroid="transparent" 
+          <TextInput style={MeuEstilo.input} underlineColorAndroid="transparent" 
           placeholder="digite o valor 1" placeholderTextColor="black"
           autoCapitalize="none"
           onChangeText={this.atualizaValor1}
           keyboardType="numeric"/> 
 
-          <TextInput underlineColorAndroid="transparent" 
+          <TextInput style={MeuEstilo.input}underlineColorAndroid="transparent" 
           placeholder="digite o valor 2" placeholderTextColor="black"
           autoCapitalize="none"
           onChangeText={this.atualizaValor2}
           keyboardType="numeric"/> 
 
-        <TouchableOpacity onPress={()=>this.soma(this.state.valor1,this.state.valor2,this.state.resultado)} >
-        <Text>Somar</Text>
+        <TouchableOpacity style={MeuEstilo.submitButton }  onPress={()=>this.soma(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <Text style={MeuEstilo.submitButtonText} > SOMA </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.subtrair(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <Text style={MeuEstilo.submitButtonText} > SUBTRAÇÃO </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.multiplicacao(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <Text style={MeuEstilo.submitButtonText} > MULTIPLICAÇÃO </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.divisao(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <Text style={MeuEstilo.submitButtonText} > DIVISÃO </Text>
         </TouchableOpacity>
 
       </View>
@@ -55,3 +82,5 @@ export default class App extends React.Component{
   };
 
 }
+
+//export default operacoesMatematicas;
