@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Text, TouchableOpacity, TextInput, View, Stylesheet, StatusBar} from 'react-native';
-import meuEstilo from './src/components/meuEstilo';
+import {Text, TouchableOpacity, TextInput, View } from 'react-native';
 
 import MeuEstilo from './src/components/meuEstilo';
 
@@ -77,6 +76,6 @@ export default class App extends React.Component{
 
       </View>
     )
-  };
+  }
 
 }
