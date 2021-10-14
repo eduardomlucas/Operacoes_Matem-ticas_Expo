@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text, TouchableOpacity, TextInput, View } from 'react-native';
-
+import * as Speech from 'expo-speech';
 import MeuEstilo from './src/components/meuEstilo';
 
 export default class App extends React.Component{
@@ -9,6 +9,8 @@ export default class App extends React.Component{
     valor2:0.0,
     resultado:0.0,
   }
+
+  
 
   //recebe um number e atualiza o estado da variavel 'valor1' || 'valor2' para o número recebido
   atualizaValor1=(number)=>{
@@ -22,24 +24,28 @@ export default class App extends React.Component{
     this.state.resultado=parseFloat(this.state.valor1)+
                           parseFloat(this.state.valor2);
     alert(this.state.resultado);
+    Speech.speak('O resultado é: ' + this.state.resultado);
   }
   // função de subtração
   subtrair(){
     this.state.resultado=parseFloat(this.state.valor1)-
                           parseFloat(this.state.valor2);
     alert(this.state.resultado);
+    Speech.speak('O resultado é: ' + this.state.resultado);
   }
   // função de multiplicação
   multiplicacao(){
     this.state.resultado=parseFloat(this.state.valor1)*
                           parseFloat(this.state.valor2);
     alert(this.state.resultado);
+    Speech.speak('O resultado é: ' + this.state.resultado);
   }
   // função de divisão
   divisao(){
     this.state.resultado=parseFloat(this.state.valor1)/
                           parseFloat(this.state.valor2);
     alert(this.state.resultado);
+    Speech.speak('O resultado é: ' + this.state.resultado);
   }
 //------------------------------------------VIEW----------------------------------------------------------------
   render(){
@@ -58,19 +64,23 @@ export default class App extends React.Component{
           onChangeText={this.atualizaValor2}
           keyboardType="numeric"/> 
 
-        <TouchableOpacity style={MeuEstilo.submitButton }  onPress={()=>this.soma(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <TouchableOpacity style={MeuEstilo.submitButton }  
+                        onPress={()=>this.soma(this.state.valor1,this.state.valor2,this.state.resultado)} >
         <Text style={MeuEstilo.submitButtonText} > SOMA </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.subtrair(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <TouchableOpacity style={MeuEstilo.submitButton} 
+                      onPress={()=>this.subtrair(this.state.valor1,this.state.valor2,this.state.resultado)} >
         <Text style={MeuEstilo.submitButtonText} > SUBTRAÇÃO </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.multiplicacao(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <TouchableOpacity style={MeuEstilo.submitButton} 
+                      onPress={()=>this.multiplicacao(this.state.valor1,this.state.valor2,this.state.resultado)} >
         <Text style={MeuEstilo.submitButtonText} > MULTIPLICAÇÃO </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={MeuEstilo.submitButton} onPress={()=>this.divisao(this.state.valor1,this.state.valor2,this.state.resultado)} >
+        <TouchableOpacity style={MeuEstilo.submitButton} 
+                      onPress={()=>this.divisao(this.state.valor1,this.state.valor2,this.state.resultado)} >
         <Text style={MeuEstilo.submitButtonText} > DIVISÃO </Text>
         </TouchableOpacity>
 
