@@ -1,13 +1,5 @@
 import { StyleSheet,} from "react-native";
 export default StyleSheet.create({
-    fontegrande:{
-        fontSize:48,
-        backgroundColor:'#333333',
-        color:'#111111',
-        flexGrow:1,
-        justifyContent:'center',
-        padding:20,
-    },
 
     container:{
         paddingTop:100,
